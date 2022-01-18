@@ -30,8 +30,6 @@ import java.util.ArrayList;
 
 
         private FragmentActivity mContext;
-        private FloatingActionButton fab;
-
 
 
         @Override
@@ -74,8 +72,8 @@ import java.util.ArrayList;
             Income_RecyclerAdapter adapter = new Income_RecyclerAdapter(new ArrayList<>());
 
 
-            BudgetViewModel viewmodel = new ViewModelProvider(mContext).get(BudgetViewModel.class);
-            viewmodel.getAllIncomes().observe(getViewLifecycleOwner(), new Observer<ArrayList<Budget_item>>() {
+            BudgetViewModel viewModel = new ViewModelProvider(mContext).get(BudgetViewModel.class);
+            viewModel.getAllIncomes().observe(getViewLifecycleOwner(), new Observer<ArrayList<Budget_item>>() {
                 @Override
                 public void onChanged(ArrayList<Budget_item> budget_items) {
 
@@ -89,7 +87,7 @@ import java.util.ArrayList;
             IncomeRecyclerView.setLayoutManager(new LinearLayoutManager(mContext , LinearLayoutManager.VERTICAL , true));
 
 
-            fab = mContext.findViewById(R.id.btn_create);
+            FloatingActionButton fab = mContext.findViewById(R.id.btn_create);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
