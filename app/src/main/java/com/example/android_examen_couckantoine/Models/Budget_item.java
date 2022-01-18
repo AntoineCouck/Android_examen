@@ -5,8 +5,10 @@ import androidx.room.Ignore;
 
 import org.threeten.bp.LocalDate;
 
+import java.io.Serializable;
+
 @Entity
-public class Budget_item {
+public class Budget_item  implements Serializable {
 
     private long Id;
 

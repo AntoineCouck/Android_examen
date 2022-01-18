@@ -3,6 +3,7 @@ package com.example.android_examen_couckantoine.Viewmodel;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.android_examen_couckantoine.Database.AppDatabase;
@@ -11,7 +12,7 @@ import com.example.android_examen_couckantoine.Models.Budget_item;
 
 import java.util.ArrayList;
 
-public class HomeViewModel {
+public class BudgetViewModel extends AndroidViewModel {
 
     //    private MutableLiveData<String> mText;
 //

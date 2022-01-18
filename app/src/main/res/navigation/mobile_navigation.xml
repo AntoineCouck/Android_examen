@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.android_examen_couckantoine.ui.Incomes.IncomesFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_Incomes" />
+        tools:layout="@layout/fragment_Incomes" >
+        <action
+            android:id="@+id/action_navigation_home_to_createFragment"
+            app:destination="@id/createFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +26,8 @@
         android:name="com.example.android_examen_couckantoine.ui.Expenses.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="com.example.android_examen_couckantoine.ui.other.CreateFragment"
+        android:label="CreateFragment" />
 </navigation>
