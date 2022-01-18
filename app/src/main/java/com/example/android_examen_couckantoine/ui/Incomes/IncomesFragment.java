@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.android_examen_couckantoine.Viewmodel.HomeViewModel;
 import com.example.android_examen_couckantoine.databinding.FragmentHomeBinding;
 
 public class IncomesFragment extends Fragment {

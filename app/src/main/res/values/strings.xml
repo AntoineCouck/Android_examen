@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Android_examen_CouckAntoine</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Incomes</string>
+    <string name="title_dashboard">Expenses</string>
+    <string name="title_notifications">Dashboard</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_create_title">Write a title</string>
+    <string name="hint_create_description">Write a description</string>
+    <string name="hint_create_amount">Set an amount</string>
+    <string name="text_btn_create">Create</string>
+    <string name="text_btn_card_delete">Delete</string>
+    <string name="btn_contexttext_add_income">Add a new income</string>
 </resources>
