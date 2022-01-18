@@ -63,7 +63,7 @@ import java.util.ArrayList;
                                  Bundle savedInstanceState) {
 
             // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.fragment_Incomes, container, false);
+            return inflater.inflate(R.layout.fragment_incomes, container, false);
 
         }
 
@@ -74,7 +74,7 @@ import java.util.ArrayList;
             Income_RecyclerAdapter adapter = new Income_RecyclerAdapter(new ArrayList<>());
 
 
-            BudgetViewModel viewmodel = new ViewModelProvider(mContext).get(Budget_item.class);
+            BudgetViewModel viewmodel = new ViewModelProvider(mContext).get(BudgetViewModel.class);
             viewmodel.getAllIncomes().observe(getViewLifecycleOwner(), new Observer<ArrayList<Budget_item>>() {
                 @Override
                 public void onChanged(ArrayList<Budget_item> budget_items) {
