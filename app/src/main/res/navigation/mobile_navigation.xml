@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_createFragment"
             app:destination="@id/createFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_details"
+            app:destination="@id/details" />
     </fragment>
 
     <fragment
@@ -30,4 +33,13 @@
         android:id="@+id/createFragment"
         android:name="com.example.android_examen_couckantoine.ui.other.CreateFragment"
         android:label="CreateFragment" />
+    <fragment
+        android:id="@+id/details"
+        android:name="com.example.android_examen_couckantoine.ui.other.detailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="Budget"
+            app:argType="com.example.android_examen_couckantoine.Models.Budget_item" />
+    </fragment>
 </navigation>

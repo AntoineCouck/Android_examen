@@ -73,4 +73,14 @@ public class BudgetViewModel extends AndroidViewModel {
 
     }
 
+    public void Delete(Budget_item item){
+
+        Budgetdatabase.databaseexe.execute(() ->
+
+                database.getDAO().deleteBudget(item)
+
+                );
+
+    }
+
 }

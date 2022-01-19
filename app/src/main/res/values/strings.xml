@@ -10,4 +10,6 @@
     <string name="text_btn_create">Create</string>
     <string name="text_btn_card_delete">Delete</string>
     <string name="btn_contexttext_add_income">Add a new income</string>
+    <string name="btn_details_backbtn">Back</string>
+    <string name="btn_details_deletebtn">Delete</string>
 </resources>

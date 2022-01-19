@@ -36,21 +36,18 @@ public class Income_RecyclerAdapter  extends RecyclerView.Adapter<Income_Recycle
             amount = itemView.findViewById(R.id.tv_card_amount);
             card = itemView.findViewById(R.id.budget_card);
 
-            card.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            card.setOnClickListener(view -> {
 
-//                    int position = getAdapterPosition();
-//                    Budget_item toPass = AllBudget.get(position);
-//
-//                    Bundle data = new Bundle();
-//
-//                    data.putSerializable("Budget_item" , toPass);
-//
-//                    Navigation.findNavController(itemView).navigate(R.id.action_navigation_home_to_createFragment);
+                int position = getAdapterPosition();
+                Budget_item toPass = AllBudget.get(position);
+
+                Bundle data = new Bundle();
+
+                data.putSerializable("Budget" , toPass);
+
+                Navigation.findNavController(itemView).navigate(R.id.action_navigation_home_to_details);
 
 
-                }
             });
 
         }
