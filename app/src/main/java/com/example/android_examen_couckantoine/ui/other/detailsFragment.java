@@ -83,7 +83,7 @@ public class detailsFragment extends Fragment {
             tvDate.setText(passedItem.getCreatedOn().toString());
             tv_type.setText(passedItem.getType().toString());
 
-            if(passedItem.getDescription() == BudgetType.INCOME.toString()){
+            if(passedItem.getType().equals(BudgetType.INCOME)){
 
                 tvAmount.setTextColor(Color.parseColor("#34eb46"));
 
@@ -103,11 +103,7 @@ public class detailsFragment extends Fragment {
             });
 
 
-        } else {
-
-            // TODO  if the passedItem is null in details do something
-
-        }
+        }  // TODO  if the passedItem is null in details do something
 
 
     }

@@ -31,17 +31,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text=" dit is een titel voor mijn mooi kaartje, mooier dan mooi. maar niet te mooi" />
 
-        <Button
-            android:id="@+id/btn_card_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:text="@string/text_btn_card_delete"
-            app:layout_constraintEnd_toStartOf="@+id/tv_card_amount"
-            app:layout_constraintTop_toBottomOf="@+id/tv_card_title" />
-
         <TextView
             android:id="@+id/tv_card_amount"
             android:layout_width="wrap_content"

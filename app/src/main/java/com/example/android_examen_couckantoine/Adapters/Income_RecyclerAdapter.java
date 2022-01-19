@@ -45,7 +45,7 @@ public class Income_RecyclerAdapter  extends RecyclerView.Adapter<Income_Recycle
 
                 data.putSerializable("Budget" , toPass);
 
-                Navigation.findNavController(itemView).navigate(R.id.action_navigation_home_to_details);
+                Navigation.findNavController(itemView).navigate(R.id.action_navigation_home_to_details , data);
 
 
             });

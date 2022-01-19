@@ -15,7 +15,7 @@
             app:destination="@id/createFragment" />
         <action
             android:id="@+id/action_navigation_home_to_details"
-            app:destination="@id/details" />
+            app:destination="@id/detailsFragment" />
     </fragment>
 
     <fragment
@@ -34,7 +34,7 @@
         android:name="com.example.android_examen_couckantoine.ui.other.CreateFragment"
         android:label="CreateFragment" />
     <fragment
-        android:id="@+id/details"
+        android:id="@+id/detailsFragment"
         android:name="com.example.android_examen_couckantoine.ui.other.detailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
