@@ -2,6 +2,7 @@ package com.example.android_examen_couckantoine.Adapters;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,14 +40,14 @@ public class Income_RecyclerAdapter  extends RecyclerView.Adapter<Income_Recycle
                 @Override
                 public void onClick(View view) {
 
-                    int position = getAdapterPosition();
-                    Budget_item toPass = AllBudget.get(position);
-
-                    Bundle data = new Bundle();
-
-                    data.putSerializable("Budget_item" , toPass);
-
-                    Navigation.findNavController(itemView).navigate(R.id.action_navigation_home_to_createFragment);
+//                    int position = getAdapterPosition();
+//                    Budget_item toPass = AllBudget.get(position);
+//
+//                    Bundle data = new Bundle();
+//
+//                    data.putSerializable("Budget_item" , toPass);
+//
+//                    Navigation.findNavController(itemView).navigate(R.id.action_navigation_home_to_createFragment);
 
 
                 }
@@ -86,7 +87,8 @@ public class Income_RecyclerAdapter  extends RecyclerView.Adapter<Income_Recycle
 
         Budget_item currentItem = AllBudget.get(position);
         holder.title.setText(currentItem.getTitle());
-        holder.amount.setText((int) currentItem.getAmount());
+        holder.amount.setText("€"+currentItem.getAmount());
+        holder.amount.setTextColor(Color.parseColor("#34eb46"));
 
     }
 

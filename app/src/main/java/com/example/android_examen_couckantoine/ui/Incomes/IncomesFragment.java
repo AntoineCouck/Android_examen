@@ -20,17 +20,18 @@ import com.example.android_examen_couckantoine.Adapters.Income_RecyclerAdapter;
 import com.example.android_examen_couckantoine.Models.Budget_item;
 import com.example.android_examen_couckantoine.R;
 import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
+import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
-
-    public class IncomesFragment extends Fragment {
+public class IncomesFragment extends Fragment {
 
 
         private FragmentActivity mContext;
-
+         FloatingActionButton fab;
 
         @Override
         public void onAttach(@NonNull Context context) {
@@ -42,26 +43,23 @@ import java.util.ArrayList;
             // Required empty public constructor
         }
 
-
-
         public static IncomesFragment newInstance() {
 
             return new IncomesFragment();
         }
 
 
-
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
             // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.fragment_incomes, container, false);
+            return inflater.inflate(R.layout.incomes_layout, container, false);
 
         }
 
@@ -72,10 +70,10 @@ import java.util.ArrayList;
             Income_RecyclerAdapter adapter = new Income_RecyclerAdapter(new ArrayList<>());
 
 
-            BudgetViewModel viewModel = new ViewModelProvider(mContext).get(BudgetViewModel.class);
-            viewModel.getAllIncomes().observe(getViewLifecycleOwner(), new Observer<ArrayList<Budget_item>>() {
+            BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(getActivity().getApplication() , 1)).get(BudgetViewModel.class);
+            viewModel.getAllIncomes().observe(getViewLifecycleOwner(), new Observer<List<Budget_item>>() {
                 @Override
-                public void onChanged(ArrayList<Budget_item> budget_items) {
+                public void onChanged(List<Budget_item> budget_items) {
 
                     adapter.Reload(budget_items);
 
@@ -84,10 +82,10 @@ import java.util.ArrayList;
 
             RecyclerView IncomeRecyclerView = view.findViewById(R.id.rv_incomes);
             IncomeRecyclerView.setAdapter(adapter);
-            IncomeRecyclerView.setLayoutManager(new LinearLayoutManager(mContext , LinearLayoutManager.VERTICAL , true));
+            IncomeRecyclerView.setLayoutManager(new LinearLayoutManager(mContext , LinearLayoutManager.VERTICAL , false));
 
 
-            FloatingActionButton fab = mContext.findViewById(R.id.btn_create);
+            fab = mContext.findViewById(R.id.btn_add_income);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

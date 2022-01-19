@@ -2,6 +2,7 @@ package com.example.android_examen_couckantoine.Models;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import org.threeten.bp.LocalDate;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
 @Entity
 public class Budget_item  implements Serializable {
 
+    @PrimaryKey(autoGenerate = true)
     private long Id;
 
     private String Title;
@@ -73,4 +75,11 @@ public class Budget_item  implements Serializable {
     }
 
 
+    public long getId() {
+        return Id;
+    }
+
+    public void setId(long id) {
+        Id = id;
+    }
 }

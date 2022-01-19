@@ -4,13 +4,13 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
 
-import com.example.android_examen_couckantoine.Database.AppDatabase;
+import com.example.android_examen_couckantoine.Database.Budgetdatabase;
 import com.example.android_examen_couckantoine.Models.BudgetType;
 import com.example.android_examen_couckantoine.Models.Budget_item;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class BudgetViewModel extends AndroidViewModel {
 
@@ -26,15 +26,16 @@ public class BudgetViewModel extends AndroidViewModel {
 //    }
 
 
-    private final MutableLiveData<ArrayList<Budget_item>> SharedItems;
-    private final MutableLiveData<ArrayList<Budget_item>> AllIncomes;
-    private final MutableLiveData<ArrayList<Budget_item>> AllExpenses;
-    private final AppDatabase database;
+    private final LiveData<List<Budget_item>> SharedItems;
+    private final LiveData<List<Budget_item>> AllIncomes;
+    private final LiveData<List<Budget_item>> AllExpenses;
+    private final Budgetdatabase database;
+    private final long id;
 
-
-    public BudgetViewModel(@NonNull Application application) {
+    public BudgetViewModel(@NonNull Application application , final long id) {
         super(application);
-        database = AppDatabase.getInstance(application);
+        this.id = id;
+        database = Budgetdatabase.getInstance(application);
 
         SharedItems = database.getDAO().getAllItems();
         AllIncomes = database.getDAO().getAllIncomes(BudgetType.INCOME);
@@ -42,21 +43,21 @@ public class BudgetViewModel extends AndroidViewModel {
 
     }
 
-    public MutableLiveData<ArrayList<Budget_item>> getSharedItems() {
+    public LiveData<List<Budget_item>> getSharedItems() {
         return SharedItems;
     }
 
-    public MutableLiveData<ArrayList<Budget_item>> getAllIncomes() {
+    public LiveData<List<Budget_item>> getAllIncomes() {
         return AllIncomes;
     }
 
-    public MutableLiveData<ArrayList<Budget_item>> getAllExpenses() {
+    public LiveData<List<Budget_item>> getAllExpenses() {
         return AllExpenses;
     }
 
     public void Insert(Budget_item item){
 
-        AppDatabase.databaseexe.execute(() ->
+        Budgetdatabase.databaseexe.execute(() ->
                 database.getDAO().insertBudget(item)
         );
 
@@ -64,7 +65,7 @@ public class BudgetViewModel extends AndroidViewModel {
 
     public void Update(Budget_item item){
 
-        AppDatabase.databaseexe.execute(() ->
+        Budgetdatabase.databaseexe.execute(() ->
 
                 database.getDAO().updateBudget(item)
 

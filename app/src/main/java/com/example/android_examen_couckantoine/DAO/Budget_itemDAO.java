@@ -1,6 +1,8 @@
 package com.example.android_examen_couckantoine.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -10,18 +12,20 @@ import com.example.android_examen_couckantoine.Models.BudgetType;
 import com.example.android_examen_couckantoine.Models.Budget_item;
 
 import java.util.ArrayList;
+import java.util.List;
 
+@Dao
 public interface Budget_itemDAO {
 
 
     @Query("SELECT * FROM Budget_item")
-    MutableLiveData<ArrayList<Budget_item>> getAllItems();
+   LiveData<List<Budget_item>> getAllItems();
 
     @Query("SELECT * FROM budget_item WHERE type LIKE :income")
-    MutableLiveData<ArrayList<Budget_item>> getAllIncomes(BudgetType income);
+    LiveData<List<Budget_item>> getAllIncomes(BudgetType income);
 
     @Query("SELECT * FROM budget_item WHERE type LIKE :expense")
-    MutableLiveData<ArrayList<Budget_item>>getAllExpenses(BudgetType expense);
+    LiveData<List<Budget_item>>getAllExpenses(BudgetType expense);
 
     @Insert
     void insertBudget(Budget_item item);
