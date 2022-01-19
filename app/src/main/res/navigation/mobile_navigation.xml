@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_incomes">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_incomes"
         android:name="com.example.android_examen_couckantoine.ui.Incomes.IncomesFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_Incomes" >
@@ -19,16 +19,23 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_d"
         android:name="com.example.android_examen_couckantoine.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.android_examen_couckantoine.ui.Expenses.NotificationsFragment"
+        android:id="@+id/navigation_expenses"
+        android:name="com.example.android_examen_couckantoine.ui.Expenses.ExpensesFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/expenses_layout" >
+        <action
+            android:id="@+id/action_navigation_expenses_to_createFragment"
+            app:destination="@id/createFragment" />
+        <action
+            android:id="@+id/action_navigation_expenses_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createFragment"
         android:name="com.example.android_examen_couckantoine.ui.other.CreateFragment"
