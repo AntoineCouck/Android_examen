@@ -1,5 +1,7 @@
 package com.example.android_examen_couckantoine.ui.other;
 
+import static java.lang.Double.parseDouble;
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -15,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.example.android_examen_couckantoine.Models.BudgetType;
 import com.example.android_examen_couckantoine.Models.Budget_item;
@@ -23,10 +27,13 @@ import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
 import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
+import org.threeten.bp.LocalDate;
+
 
 public class CreateFragment extends Fragment {
 
     private FragmentActivity mContext;
+    private TextView tv_total_expenses;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -69,18 +76,35 @@ public class CreateFragment extends Fragment {
         EditText titleET = view.findViewById(R.id.et_title);
         EditText descriptionET = view.findViewById(R.id.et_description);
         EditText amountET = view.findViewById(R.id.et_amount);
+        RadioButton ChooseIncome = view.findViewById(R.id.rd_choose_income);
+        RadioButton ChooseExpense = view.findViewById(R.id.rd_choose_expense);
         Button createBtn = view.findViewById(R.id.btn_create);
+        createBtn.setOnClickListener(v -> {
 
-        createBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            Budget_item newBudget = new Budget_item();
 
-                Budget_item newBudget = new Budget_item(titleET.getText().toString() , descriptionET.getText().toString() ,Double.parseDouble(amountET.getText().toString()) , BudgetType.INCOME);
+            newBudget.setTitle(titleET.getText().toString());
+            newBudget.setDescription(descriptionET.getText().toString());
+            newBudget.setCreatedOn(LocalDate.now());
+            newBudget.setAmount(parseDouble(amountET.getText().toString()));
 
-                viewModel.Insert(newBudget);
 
-                Navigation.findNavController(view).navigateUp();
+
+            if(ChooseIncome.isChecked()){
+                newBudget.setType(BudgetType.INCOME);
             }
+            if(ChooseExpense.isChecked()){
+                newBudget.setType(BudgetType.EXPENSE);
+            }
+
+            Bundle data = new Bundle();
+
+            data.putSerializable("Expense" ,newBudget);
+
+
+            viewModel.Insert(newBudget);
+            Navigation.findNavController(view).navigateUp();
+//              Navigation.findNavController(view).navigate(R.id.action_createFragment_to_navigation_expenses);
         });
 
 

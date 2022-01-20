@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,6 +33,7 @@ public class IncomesFragment extends Fragment {
 
         private FragmentActivity mContext;
          FloatingActionButton fab;
+         private TextView tv_total_incomes;
 
         @Override
         public void onAttach(@NonNull Context context) {
@@ -67,17 +69,25 @@ public class IncomesFragment extends Fragment {
         public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
+            tv_total_incomes = view.findViewById(R.id.tv_total_incomes);
+
             Income_RecyclerAdapter adapter = new Income_RecyclerAdapter(new ArrayList<>());
 
 
             BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(getActivity().getApplication() , 1)).get(BudgetViewModel.class);
-            viewModel.getAllIncomes().observe(getViewLifecycleOwner(), new Observer<List<Budget_item>>() {
-                @Override
-                public void onChanged(List<Budget_item> budget_items) {
+            viewModel.getAllIncomes().observe(getViewLifecycleOwner(), budget_items -> {
 
-                    adapter.Reload(budget_items);
+                adapter.Reload(budget_items);
+                tv_total_incomes = view.findViewById(R.id.tv_total_incomes);
+                double income = 0;
+                for(Budget_item item : budget_items){
+
+                    income += item.getAmount();
+                    tv_total_incomes.setText("€"+income);
 
                 }
+
+
             });
 
             RecyclerView IncomeRecyclerView = view.findViewById(R.id.rv_incomes);

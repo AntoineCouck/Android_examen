@@ -19,7 +19,9 @@ import com.example.android_examen_couckantoine.R;
 
 import java.util.List;
 
-public class Expenses_RecyclerAdapter extends RecyclerView.Adapter<Expenses_RecyclerAdapter.BudgetItemViewHolder> {
+public class Expense_RecyclerAdapter extends RecyclerView.Adapter<Expense_RecyclerAdapter.BudgetItemViewHolder> {
+
+
 
     class BudgetItemViewHolder extends RecyclerView.ViewHolder {
 
@@ -54,7 +56,7 @@ public class Expenses_RecyclerAdapter extends RecyclerView.Adapter<Expenses_Recy
 
     private List<Budget_item> AllBudget;
 
-    public Expenses_RecyclerAdapter(List<Budget_item> allBudget) {
+    public Expense_RecyclerAdapter(List<Budget_item> allBudget) {
         AllBudget = allBudget;
     }
 

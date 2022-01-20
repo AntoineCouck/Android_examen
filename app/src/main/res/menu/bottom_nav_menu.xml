@@ -7,13 +7,12 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_d"
-        android:icon="@drawable/ic_baseline_euro_24"
-        android:title="@string/title_dashboard" />
-
-    <item
         android:id="@+id/navigation_expenses"
+        android:icon="@drawable/ic_baseline_euro_24"
+        android:title="@string/bottom_nav_expenses" />
+    <item
+        android:id="@+id/navigation_d"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_notifications" />
+        android:title="@string/txt_bottom_dashboard" />
 
 </menu>
