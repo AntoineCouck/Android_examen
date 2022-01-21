@@ -62,8 +62,6 @@ public class ExpensesFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.expenses_layout, container, false);
-
-
     }
 
     @Override

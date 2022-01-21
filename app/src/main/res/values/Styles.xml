@@ -3,4 +3,19 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="RedAccent" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">#F00</item>
+    </style>
+    <style name="orangeAccent" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">#FF9800</item>
+    </style>
+    <style name="yelloWAccent" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">#FFEB3B</item>
+    </style>
+    <style name="greenAccent" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">#3FAE44</item>
+    </style>
+
 </resources>

@@ -18,4 +18,11 @@
     <string name="rd_choose_expense">Expense</string>
     <string name="bottom_nav_expenses">Expenses</string>
     <string name="txt_bottom_dashboard">Dashboard</string>
+    <string name="tv_title_dashboard">Welcom to your dashboard</string>
+    <string name="tv_dashboard_secondTitle">Statistics</string>
+    <string name="tv_progressbar">Progression of the budget</string>
+    <string name="tv_progress">Progression</string>
+    <string name="context_desc_img_incomes">total incomes image</string>
+    <string name="context_desc_expenses">total expenses image</string>
+    <string name="contextDesc">Balance image</string>
 </resources>
