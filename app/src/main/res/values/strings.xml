@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android_examen_CouckAntoine</string>
+    <string name="app_name">Budget app</string>
     <string name="title_home">Incomes</string>
     <string name="title_dashboard">Expenses</string>
     <string name="title_notifications">Dashboard</string>
