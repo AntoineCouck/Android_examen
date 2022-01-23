@@ -96,14 +96,7 @@ public class IncomesFragment extends Fragment {
 
 
             fab = mContext.findViewById(R.id.btn_add_income);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_createFragment);
-
-                }
-            });
+            fab.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_navigation_home_to_createFragment));
 
         }
 

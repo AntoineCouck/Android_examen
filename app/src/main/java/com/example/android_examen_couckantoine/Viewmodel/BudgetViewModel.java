@@ -29,6 +29,7 @@ public class BudgetViewModel extends AndroidViewModel {
     private final LiveData<List<Budget_item>> SharedItems;
     private final LiveData<List<Budget_item>> AllIncomes;
     private final LiveData<List<Budget_item>> AllExpenses;
+    private final LiveData<List<Budget_item>> GetByTitle;
     private final Budgetdatabase database;
     private final long id;
 
@@ -36,7 +37,7 @@ public class BudgetViewModel extends AndroidViewModel {
         super(application);
         this.id = id;
         database = Budgetdatabase.getInstance(application);
-
+        GetByTitle = database.getDAO().GetByTitle("");
         SharedItems = database.getDAO().getAllItems();
         AllIncomes = database.getDAO().getAllIncomes(BudgetType.INCOME);
         AllExpenses = database.getDAO().getAllExpenses(BudgetType.EXPENSE);
@@ -53,6 +54,10 @@ public class BudgetViewModel extends AndroidViewModel {
 
     public LiveData<List<Budget_item>> getAllExpenses() {
         return AllExpenses;
+    }
+
+    public LiveData<List<Budget_item>> getGetByTitle() {
+        return GetByTitle;
     }
 
     public void Insert(Budget_item item){

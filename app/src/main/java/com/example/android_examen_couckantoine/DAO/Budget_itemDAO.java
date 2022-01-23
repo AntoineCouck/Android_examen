@@ -27,6 +27,9 @@ public interface Budget_itemDAO {
     @Query("SELECT * FROM budget_item WHERE type LIKE :expense")
     LiveData<List<Budget_item>>getAllExpenses(BudgetType expense);
 
+    @Query("SELECT * FROM budget_item WHERE Title LIKE :title")
+    LiveData<List<Budget_item>>GetByTitle(String title);
+
     @Insert
     void insertBudget(Budget_item item);
 

@@ -56,4 +56,8 @@
             android:name="Budget"
             app:argType="com.example.android_examen_couckantoine.Models.Budget_item" />
     </fragment>
+    <fragment
+        android:id="@+id/preferencesFragment"
+        android:name="com.example.android_examen_couckantoine.ui.other.PreferencesFragment"
+        android:label="PreferencesFragment" />
 </navigation>

@@ -11,14 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_examen_couckantoine.Adapters.Expense_RecyclerAdapter;
-import com.example.android_examen_couckantoine.Adapters.Income_RecyclerAdapter;
 import com.example.android_examen_couckantoine.Models.Budget_item;
 import com.example.android_examen_couckantoine.R;
 import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
@@ -26,7 +24,6 @@ import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ExpensesFragment extends Fragment {

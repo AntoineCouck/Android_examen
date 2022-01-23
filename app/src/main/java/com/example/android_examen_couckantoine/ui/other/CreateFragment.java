@@ -97,6 +97,9 @@ public class CreateFragment extends Fragment {
                 newBudget.setType(BudgetType.EXPENSE);
             }
 
+
+            //TODO check if the bundle is in use or not
+
             Bundle data = new Bundle();
 
             data.putSerializable("Expense" ,newBudget);

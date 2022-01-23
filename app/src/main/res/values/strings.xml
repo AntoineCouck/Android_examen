@@ -1,9 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Budget app</string>
     <string name="title_home">Incomes</string>
     <string name="title_dashboard">Expenses</string>
     <string name="title_notifications">Dashboard</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="hint_create_title">Write a title</string>
     <string name="hint_create_description">Write a description</string>
     <string name="hint_create_amount">Set an amount</string>
@@ -12,17 +12,29 @@
     <string name="btn_contexttext_add_income">Add a new income</string>
     <string name="btn_details_backbtn">Back</string>
     <string name="btn_details_deletebtn">Delete</string>
-    <string name="rd_create_income" />
+    <string name="rd_create_income" translatable="false" />
     <string name="rd_choose_income">Income</string>
-    <string name="rd_create_choose_expense" />
+    <string name="rd_create_choose_expense" translatable="false" />
     <string name="rd_choose_expense">Expense</string>
     <string name="bottom_nav_expenses">Expenses</string>
     <string name="txt_bottom_dashboard">Dashboard</string>
-    <string name="tv_title_dashboard">Welcom to your dashboard</string>
+    <string name="tv_title_dashboard">Welcome to your dashboard</string>
     <string name="tv_dashboard_secondTitle">Statistics</string>
     <string name="tv_progressbar">Progression of the budget</string>
     <string name="tv_progress">Progression</string>
     <string name="context_desc_img_incomes">total incomes image</string>
     <string name="context_desc_expenses">total expenses image</string>
-    <string name="contextDesc">Balance image</string>
+    <string name="contextDesc" translatable="false">Balance image</string>
+    <string name="menu_Search_icon">Search</string>
+    <string name="settings_description">Search</string>
+    <string name="search_hint">Search</string>
+    <string name="search_label">Search</string>
+    <string name="title_settings">Settings</string>
+    <string name="pref_accept_tos">Agree to terms of service</string>
+    <string name="pref_languages">Choose your language</string>
+    <string name="pref_title_list_languages" >List of languages</string>
+    <string-array name="pref_language_list">
+     <item>NL</item>
+     <item>ENG</item>
+    </string-array>
 </resources>
