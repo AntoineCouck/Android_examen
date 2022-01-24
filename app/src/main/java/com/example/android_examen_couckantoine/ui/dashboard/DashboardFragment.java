@@ -1,35 +1,38 @@
 package com.example.android_examen_couckantoine.ui.dashboard;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import com.example.android_examen_couckantoine.Models.Budget_item;
 import com.example.android_examen_couckantoine.R;
+import com.example.android_examen_couckantoine.Utils.Utils;
 import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
 import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
-import com.example.android_examen_couckantoine.databinding.FragmentDashboardBinding;
-import com.example.android_examen_couckantoine.ui.Expenses.ExpensesFragment;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-import java.util.zip.Inflater;
+import java.util.Locale;
 
 public class DashboardFragment extends Fragment {
 
@@ -65,23 +68,41 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setHasOptionsMenu(true);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String Languishes = prefs.getString("list_preference_1"  , "NL");
+        if(Languishes.equals("NL")){
 
+            //TODO change language to nl here
+            Utils.updateResources(mContext , "NL");
+
+
+        }
+        if(Languishes.equals("ENG")){
+
+            //TODO change language to eng here
+            Utils.updateResources(mContext , Locale.getDefault().getLanguage() );
+        }
+    }
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
        return inflater.inflate(R.layout.fragment_dashboard , container , false);
     }
-
-
-
-    public void UpdateTotals(List<Budget_item> budget_items) {
-
-                //TODO utiliser une fonction pour avoir moins de code dans le viewCreated
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.pref_menu, menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            Navigation.findNavController(mContext, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_d_to_preferencesFragment22);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
 
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -113,7 +134,7 @@ public class DashboardFragment extends Fragment {
             for(Budget_item item : budget_items){
 
                 totalIncomes += item.getAmount();
-                tv_incomes.setText("€"+totalIncomes);
+                tv_incomes.setText("€" + totalIncomes);
                 totalBalance = totalIncomes - totalExpenses;
                 tv_balance.setText("€"+totalBalance);
 
@@ -166,6 +187,35 @@ public class DashboardFragment extends Fragment {
     }
 
 
+    @Override
+    public void onResume() {
+
+        super.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String Languishes = prefs.getString("list_preference_1"  , "NL");
+
+        if(Languishes.equals("NL")){
+
+           //TODO change language to nl here
+            Utils.updateResources(mContext , "NL");
+        }
+
+        if(Languishes.equals("ENG")){
+
+            //TODO change language to eng here
+            Utils.updateResources(mContext , Locale.getDefault().getLanguage() );
+        }
+
+        if(!prefs.getBoolean("pref_tos", false)){
+
+            Toast toast = Toast.makeText(mContext , "Accept the terms of use please" , Toast.LENGTH_LONG );
+            toast.show();
+
+        }
+
+    }
+
+
     public void CalculteProgression(int progression){
 
         if(progression >= 75){
@@ -194,5 +244,8 @@ public class DashboardFragment extends Fragment {
 
         }
     }
+
+
+
 
 }

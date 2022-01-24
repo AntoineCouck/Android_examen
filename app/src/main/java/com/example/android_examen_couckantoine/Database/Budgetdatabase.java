@@ -35,7 +35,6 @@ public abstract class Budgetdatabase extends RoomDatabase {
         return instance;
     }
 
-    //TODO  add all dao here
 
     public abstract Budget_itemDAO getDAO();
 

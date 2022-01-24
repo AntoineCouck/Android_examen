@@ -3,6 +3,8 @@ package com.example.android_examen_couckantoine.ui.Incomes;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -39,6 +41,7 @@ public class IncomesFragment extends Fragment {
         public void onAttach(@NonNull Context context) {
             super.onAttach(context);
             mContext = (FragmentActivity)context;
+
         }
 
         public IncomesFragment() {
@@ -54,6 +57,11 @@ public class IncomesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
     }
 
         @Override

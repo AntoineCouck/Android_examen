@@ -103,7 +103,7 @@ public class detailsFragment extends Fragment {
             });
 
 
-        }  // TODO  if the passedItem is null in details do something
+        }
 
 
     }

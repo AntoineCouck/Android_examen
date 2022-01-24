@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_incomes">
+    app:startDestination="@id/navigation_d">
 
     <fragment
         android:id="@+id/navigation_incomes"
@@ -25,7 +25,11 @@
         android:id="@+id/navigation_d"
         android:name="com.example.android_examen_couckantoine.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_d_to_preferencesFragment22"
+            app:destination="@id/preferencesFragment2" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_expenses"
@@ -38,6 +42,9 @@
         <action
             android:id="@+id/action_navigation_expenses_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_navigation_expenses_to_preferencesFragment22"
+            app:destination="@id/preferencesFragment2" />
     </fragment>
     <fragment
         android:id="@+id/createFragment"
@@ -57,7 +64,7 @@
             app:argType="com.example.android_examen_couckantoine.Models.Budget_item" />
     </fragment>
     <fragment
-        android:id="@+id/preferencesFragment"
+        android:id="@+id/preferencesFragment2"
         android:name="com.example.android_examen_couckantoine.ui.other.PreferencesFragment"
         android:label="PreferencesFragment" />
 </navigation>

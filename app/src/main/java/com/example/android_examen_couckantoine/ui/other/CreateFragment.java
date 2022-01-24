@@ -98,7 +98,7 @@ public class CreateFragment extends Fragment {
             }
 
 
-            //TODO check if the bundle is in use or not
+
 
             Bundle data = new Bundle();
 
