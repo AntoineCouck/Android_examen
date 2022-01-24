@@ -33,8 +33,9 @@
     <string name="pref_accept_tos">Agree to terms of service</string>
     <string name="pref_languages">Choose your language</string>
     <string name="pref_title_list_languages" >List of languages</string>
-    <string-array name="pref_language_list">
+    <string-array name="pref_language_list" tools:ignore="InconsistentArrays">
      <item>NL</item>
      <item>ENG</item>
+        <item>FR</item>
     </string-array>
 </resources>

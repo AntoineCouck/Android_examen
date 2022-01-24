@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-    //TODO add search to the recyclerviews
-    // https://www.androidhive.info/2017/11/android-recyclerview-with-search-filter-functionality/
+
+
 
 //
 //    @Override

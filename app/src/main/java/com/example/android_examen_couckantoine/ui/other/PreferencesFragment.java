@@ -48,13 +48,18 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
         if(Languishes.equals("NL")){
 
-            //TODO change language to nl here
+
             Utils.updateResources(mContext , "NL");
         }
         if(Languishes.equals("ENG")){
 
-            //TODO change language to eng here
+
             Utils.updateResources(mContext , "en" );
+        }
+        if(Languishes.equals("FR")){
+
+
+            Utils.updateResources(mContext , "fr" );
         }
     }
 
@@ -67,11 +72,11 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
         if(Languishes.equals("NL")){
 
-            //TODO change language to nl here
+
             Utils.updateResources(mContext , "NL");
         }
         if(Languishes.equals("ENG")){
-            //TODO change language to eng here
+
             Utils.updateResources(mContext , "en" );
 
         }

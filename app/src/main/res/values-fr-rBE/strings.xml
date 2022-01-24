@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Budget app</string>
+    <string name="title_home">Revenus</string>
+    <string name="title_dashboard">Dépenses</string>
+    <string name="title_notifications">Dashboard</string>
+    <string name="hint_create_title">Choissisez un titre</string>
+    <string name="hint_create_description">Description</string>
+    <string name="hint_create_amount">Nombre</string>
+    <string name="text_btn_create">Créer</string>
+    <string name="text_btn_card_delete">Supprimer</string>
+    <string name="btn_contexttext_add_income">Ajouter un nouveau revenu</string>
+    <string name="btn_details_backbtn">Retour</string>
+    <string name="btn_details_deletebtn">Supprimer</string>
+    <string name="rd_choose_income">Revenu</string>
+    <string name="rd_choose_expense">Dépenses</string>
+    <string name="bottom_nav_expenses">Dépenses</string>
+    <string name="txt_bottom_dashboard">Dashboard</string>
+    <string name="tv_title_dashboard">Bienvenue dans votre dashboard</string>
+    <string name="tv_dashboard_secondTitle">Statistiques</string>
+    <string name="tv_progressbar">Progression de votre budget</string>
+    <string name="tv_progress">Progression</string>
+    <string name="context_desc_img_incomes">Total des revenus</string>
+    <string name="context_desc_expenses">Total des dépenses</string>
+    <string name="menu_Search_icon">Rechercher</string>
+    <string name="settings_description">Rechercher</string>
+    <string name="search_hint">Rechercher</string>
+    <string name="search_label">Rechercher</string>
+    <string name="title_settings">Paramètres</string>
+    <string name="pref_accept_tos">Accepter les conditions d\'utilisation</string>
+    <string name="pref_languages">Choix de la langue</string>
+    <string name="pref_title_list_languages">Liste des langues disponible</string>
+</resources>
