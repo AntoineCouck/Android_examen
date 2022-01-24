@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:icon="@drawable/legal"
+        android:key="pref_tos"
+        android:title="@string/pref_accept_tos" />
+    <PreferenceCategory android:title="@string/pref_languages"/>
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/pref_language_list"
+        android:entryValues="@array/pref_language_list"
+        android:key="list_preference_1"
+        android:title="@string/pref_title_list_languages" />
+</PreferenceScreen>

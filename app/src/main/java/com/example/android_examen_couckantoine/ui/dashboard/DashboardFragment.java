@@ -69,20 +69,7 @@ public class DashboardFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-        String Languishes = prefs.getString("list_preference_1"  , "NL");
-        if(Languishes.equals("NL")){
 
-            //TODO change language to nl here
-            Utils.updateResources(mContext , "NL");
-
-
-        }
-        if(Languishes.equals("ENG")){
-
-            //TODO change language to eng here
-            Utils.updateResources(mContext , Locale.getDefault().getLanguage() );
-        }
     }
 
 
@@ -192,20 +179,6 @@ public class DashboardFragment extends Fragment {
 
         super.onResume();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-        String Languishes = prefs.getString("list_preference_1"  , "NL");
-
-        if(Languishes.equals("NL")){
-
-           //TODO change language to nl here
-            Utils.updateResources(mContext , "NL");
-        }
-
-        if(Languishes.equals("ENG")){
-
-            //TODO change language to eng here
-            Utils.updateResources(mContext , Locale.getDefault().getLanguage() );
-        }
-
         if(!prefs.getBoolean("pref_tos", false)){
 
             Toast toast = Toast.makeText(mContext , "Accept the terms of use please" , Toast.LENGTH_LONG );

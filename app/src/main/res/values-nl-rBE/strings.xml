@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Budget app</string>
+    <string name="title_home">Inkomsten</string>
+    <string name="title_dashboard">Uitgaven</string>
+    <string name="title_notifications">Dashboard</string>
+    <string name="hint_create_title">Geef een titel in</string>
+    <string name="hint_create_description">Geef een beschrijving in</string>
+    <string name="hint_create_amount">Geef een getal in</string>
+    <string name="text_btn_create">Aanmaken</string>
+    <string name="text_btn_card_delete">Verwijderen</string>
+    <string name="btn_contexttext_add_income">Voeg een niew inkomst in</string>
+    <string name="btn_details_backbtn">Terug</string>
+    <string name="btn_details_deletebtn">Verwijder</string>
+    <string name="rd_choose_income">Inkomst</string>
+    <string name="rd_choose_expense">Uitgave</string>
+    <string name="bottom_nav_expenses">Uitgave</string>
+    <string name="txt_bottom_dashboard">Dashboard</string>
+    <string name="tv_title_dashboard">Wekom op uw dashboard</string>
+    <string name="tv_dashboard_secondTitle">Statistieken</string>
+    <string name="tv_progressbar">Progressie van uw budget</string>
+    <string name="tv_progress">Progressie</string>
+    <string name="context_desc_img_incomes">Totaal van de inkomsten</string>
+    <string name="context_desc_expenses">Totaal van de uitgaven</string>
+    <string name="menu_Search_icon">Zoek</string>
+    <string name="settings_description">Zoek</string>
+    <string name="search_hint">Zoek</string>
+    <string name="search_label">Zoek</string>
+    <string name="title_settings">Instellingen</string>
+    <string name="pref_accept_tos">Akkoord met de servicevoorwaarden</string>
+    <string name="pref_languages">Kies uw taal</string>
+    <string name="pref_title_list_languages">Lijst van beschikbare talen</string>
+</resources>
