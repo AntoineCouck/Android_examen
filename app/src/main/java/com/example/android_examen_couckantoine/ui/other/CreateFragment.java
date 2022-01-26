@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +20,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android_examen_couckantoine.Models.BudgetType;
 import com.example.android_examen_couckantoine.Models.Budget_item;
 import com.example.android_examen_couckantoine.R;
 import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
 import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
-import com.jakewharton.threetenabp.AndroidThreeTen;
+import com.example.android_examen_couckantoine.ui.dashboard.DashboardFragment;
+import com.example.android_examen_couckantoine.ui.other.Dialogs.CreateLimitDialogFragment;
+import com.example.android_examen_couckantoine.ui.other.Dialogs.WarningLimit;
+
 
 import org.threeten.bp.LocalDate;
 
@@ -34,6 +39,11 @@ public class CreateFragment extends Fragment {
 
     private FragmentActivity mContext;
     private TextView tv_total_expenses;
+    double totalincomes = 0;
+    double totalexpenses = 0;
+    boolean create;
+
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -48,10 +58,6 @@ public class CreateFragment extends Fragment {
     }
 
 
-    public static CreateFragment newInstance() {
-        CreateFragment fragment = new CreateFragment();
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,6 +85,8 @@ public class CreateFragment extends Fragment {
         RadioButton ChooseIncome = view.findViewById(R.id.rd_choose_income);
         RadioButton ChooseExpense = view.findViewById(R.id.rd_choose_expense);
         Button createBtn = view.findViewById(R.id.btn_create);
+
+
         createBtn.setOnClickListener(v -> {
 
             Budget_item newBudget = new Budget_item();
@@ -97,18 +105,30 @@ public class CreateFragment extends Fragment {
                 newBudget.setType(BudgetType.EXPENSE);
             }
 
+            if( (DashboardFragment.totalBalance - Double.parseDouble(amountET.getText().toString())) < Double.parseDouble(CreateLimitDialogFragment.Limit) && ChooseExpense.isChecked()){
+
+                new WarningLimit().show(getChildFragmentManager() , WarningLimit.TAG);
+
+                assert getArguments() != null;
+                create = getArguments().getBoolean("create_item");
+
+                if (create){
+                    viewModel.Insert(newBudget);
+                }
+
+            }
+
+            else {
+                            viewModel.Insert(newBudget);
+                            Navigation.findNavController(view).navigateUp();
+
+            }
 
 
 
-            Bundle data = new Bundle();
 
-            data.putSerializable("Expense" ,newBudget);
-
-
-            viewModel.Insert(newBudget);
-            Navigation.findNavController(view).navigateUp();
-//              Navigation.findNavController(view).navigate(R.id.action_createFragment_to_navigation_expenses);
         });
+
 
 
     }

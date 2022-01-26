@@ -12,10 +12,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,12 +27,13 @@ import androidx.preference.PreferenceManager;
 
 import com.example.android_examen_couckantoine.Models.Budget_item;
 import com.example.android_examen_couckantoine.R;
-import com.example.android_examen_couckantoine.Utils.Utils;
 import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
 import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
+import com.example.android_examen_couckantoine.ui.other.Dialogs.CreateLimitDialogFragment;
+import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
-import java.util.Locale;
+
 
 public class DashboardFragment extends Fragment {
 
@@ -43,10 +44,13 @@ public class DashboardFragment extends Fragment {
     TextView tv_incomes;
     TextView tv_expenses;
     TextView tv_balance;
+    Button btn_limit;
+    TextView tv_limit_number;
+
     ProgressBar progressBar;
     double totalIncomes = 0;
     double totalExpenses = 0;
-    double totalBalance = 0;
+     public static double totalBalance = 0;
     double progression;
 
 
@@ -60,10 +64,7 @@ public class DashboardFragment extends Fragment {
 
     }
 
-    public static DashboardFragment newInstance() {
 
-        return new DashboardFragment();
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -95,12 +96,12 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // get the imageviews
+
         iv_incomes = view.findViewById(R.id.iv_incomes);
         iv_expenses = view.findViewById(R.id.iv_expenses);
         iv_balance = view.findViewById(R.id.iv_balance);
 
-        // set the imageviews with picasso
+
         Picasso.get().load(R.drawable.moneybag).into(iv_incomes);
         Picasso.get().load(R.drawable.euro).into(iv_expenses);
         Picasso.get().load(R.drawable.euro2).into(iv_balance);
@@ -111,10 +112,14 @@ public class DashboardFragment extends Fragment {
         tv_balance = view.findViewById(R.id.tv_dashboard_balance);
         progressBar = view.findViewById(R.id.progressBar);
 
+        tv_limit_number = view.findViewById(R.id.tv_limit_number);
+        btn_limit = view.findViewById(R.id.btn_set_limit);
+
+        tv_limit_number.setText("€0");
 
 
 
-        BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(getActivity().getApplication() , 1)).get(BudgetViewModel.class);
+        BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(requireActivity().getApplication() , 1)).get(BudgetViewModel.class);
         viewModel.getAllIncomes().observe(getViewLifecycleOwner(), budget_items -> {
 
 
@@ -137,7 +142,7 @@ public class DashboardFragment extends Fragment {
 
                 Math.round(progression);
                 progressBar.setProgress((int)progression);
-                CalculteProgression((int)progression);
+                CalculatedProgression((int)progression);
             }
 
 
@@ -165,11 +170,26 @@ public class DashboardFragment extends Fragment {
 
                     Math.round(progression);
                     progressBar.setProgress((int)progression);
-                    CalculteProgression((int)progression);
+                    CalculatedProgression((int)progression);
 
                 }
 
         });
+
+        btn_limit.setOnClickListener(v -> {
+
+            new CreateLimitDialogFragment().show(getChildFragmentManager() , CreateLimitDialogFragment.TAG);
+
+
+            if(CreateLimitDialogFragment.Limit != null){
+
+                tv_limit_number.setText("€"+ CreateLimitDialogFragment.Limit);
+            }
+
+        });
+
+
+
 
     }
 
@@ -181,15 +201,21 @@ public class DashboardFragment extends Fragment {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
         if(!prefs.getBoolean("pref_tos", false)){
 
-            Toast toast = Toast.makeText(mContext , "Accept the terms of use please" , Toast.LENGTH_LONG );
-            toast.show();
+            Snackbar snackbar = Snackbar.make(mContext.findViewById(R.id.dashboard_container) ,R.string.txt_snackbar_title , Snackbar.LENGTH_LONG);
+            snackbar.setActionTextColor(Color.GREEN);
+            snackbar.setAction(R.string.txt_snackbar_apply, v -> Navigation.findNavController(mContext , R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_d_to_preferencesFragment22));
+            snackbar.show();
 
+        }
+        if(CreateLimitDialogFragment.Limit != null){
+
+            tv_limit_number.setText("€"+ CreateLimitDialogFragment.Limit);
         }
 
     }
 
 
-    public void CalculteProgression(int progression){
+    public void CalculatedProgression(int progression){
 
         if(progression >= 75){
 

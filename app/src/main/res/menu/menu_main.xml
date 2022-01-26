@@ -3,15 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="be.ehb.mynotes.MainActivity">
 
-<!--    <item-->
-<!--        android:id="@+id/action_new"-->
-<!--        android:icon="@android:drawable/ic_input_add"-->
-<!--        android:title=""-->
-<!--        app:showAsAction="ifRoom" />-->
+
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/menu_Search_icon"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="ifRoom|collapseActionView" />
+        app:showAsAction="ifRoom|collapseActionView"
+        />
 </menu>

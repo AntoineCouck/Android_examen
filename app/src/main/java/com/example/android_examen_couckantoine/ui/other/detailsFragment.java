@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.android_examen_couckantoine.Models.BudgetType;
 import com.example.android_examen_couckantoine.Models.Budget_item;
@@ -42,10 +42,7 @@ public class detailsFragment extends Fragment {
 
 
 
-    public static detailsFragment newInstance() {
-        detailsFragment fragment = new detailsFragment();
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

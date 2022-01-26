@@ -2,12 +2,15 @@ package com.example.android_examen_couckantoine.ui.Incomes;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +39,7 @@ public class IncomesFragment extends Fragment {
         private FragmentActivity mContext;
          FloatingActionButton fab;
          private TextView tv_total_incomes;
+
 
         @Override
         public void onAttach(@NonNull Context context) {
@@ -105,6 +109,8 @@ public class IncomesFragment extends Fragment {
 
             fab = mContext.findViewById(R.id.btn_add_income);
             fab.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_navigation_home_to_createFragment));
+
+
 
         }
 

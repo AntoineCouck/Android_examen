@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,6 +35,7 @@ public class ExpensesFragment extends Fragment {
     private FragmentActivity mContext;
     FloatingActionButton fab;
     private TextView tv_total_expenses;
+    SearchView searchView;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -98,6 +100,7 @@ public class ExpensesFragment extends Fragment {
 
         fab = mContext.findViewById(R.id.btn_add_expense);
         fab.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_navigation_expenses_to_createFragment));
+
 
     }
 

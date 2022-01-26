@@ -30,4 +30,15 @@
     <string name="pref_accept_tos">Akkoord met de servicevoorwaarden</string>
     <string name="pref_languages">Kies uw taal</string>
     <string name="pref_title_list_languages">Lijst van beschikbare talen</string>
+    <string name="txt_snackbar_apply">Ga akkoord</string>
+    <string name="txt_title_limitDialog">Stel een limiet in</string>
+    <string name="txt_snackbar_title">Akkoord met de servicevoorwaarden</string>
+    <string name="btn_set_limit">Stel een limiet in</string>
+    <string name="tv_limit">Limiet is:</string>
+    <string name="txt_btn_postiveDialog">Stel limiet in</string>
+    <string name="txt_btn_negativeDialog">Sluit</string>
+    <string name="hint_input_limit">Geef een nummer in</string>
+    <string name="txt_title_Warningdialog">Limiet is bereikt</string>
+    <string name="txt_wariningdialog_toDashboard">Stel een nieuw limiet in</string>
+    <string name="txt_warningdialog_create">Toch aanmaken</string>
 </resources>

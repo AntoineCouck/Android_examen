@@ -39,5 +39,16 @@
             <item>NL</item>
             <item>ENG</item>
         </string-array>
+    <string name="txt_snackbar_apply">Apply</string>
+    <string name="txt_title_limitDialog">Set a limit</string>
+    <string name="txt_snackbar_title">Accept the terms of use please</string>
+    <string name="btn_set_limit">Set a limit</string>
+    <string name="tv_limit">Limit set at:</string>
+    <string name="txt_btn_negativeDialog">Dismiss</string>
+    <string name="txt_btn_postiveDialog">Set limit</string>
+    <string name="hint_input_limit">Set a number</string>
+    <string name="txt_title_Warningdialog">Warning limit reached</string>
+    <string name="txt_wariningdialog_toDashboard">Reset the limit in dashboard</string>
+    <string name="txt_warningdialog_create">Create anywhere</string>
 
 </resources>

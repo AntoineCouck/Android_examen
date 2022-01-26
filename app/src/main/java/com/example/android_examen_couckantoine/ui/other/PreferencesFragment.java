@@ -74,11 +74,18 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
 
             Utils.updateResources(mContext , "NL");
+
+            //TODO ajouter un toast pour prevenir du changement de la langue
         }
         if(Languishes.equals("ENG")){
 
             Utils.updateResources(mContext , "en" );
 
+        }
+        if(Languishes.equals("FR")){
+
+
+            Utils.updateResources(mContext , "fr" );
         }
 
     }
