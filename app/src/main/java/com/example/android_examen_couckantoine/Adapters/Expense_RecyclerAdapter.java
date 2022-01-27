@@ -83,7 +83,7 @@ public class Expense_RecyclerAdapter extends RecyclerView.Adapter<Expense_Recycl
 
         Budget_item currentItem = AllBudget.get(position);
         holder.title.setText(currentItem.getTitle());
-        holder.amount.setText("€"+currentItem.getAmount());
+        holder.amount.setText(String.format("€%s", currentItem.getAmount()));
         holder.amount.setTextColor(Color.parseColor("#ed2f05"));
 
     }

@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
+
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,13 +29,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 
+
 public class ExpensesFragment extends Fragment {
 
 
     private FragmentActivity mContext;
     FloatingActionButton fab;
     private TextView tv_total_expenses;
-    SearchView searchView;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -77,7 +78,7 @@ public class ExpensesFragment extends Fragment {
         Expense_RecyclerAdapter adapter = new Expense_RecyclerAdapter(new ArrayList<>());
 
 
-        BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(getActivity().getApplication() , 1)).get(BudgetViewModel.class);
+        BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(requireActivity().getApplication() , 1)).get(BudgetViewModel.class);
         viewModel.getAllExpenses().observe(getViewLifecycleOwner(), budget_items -> {
             adapter.Reload(budget_items);
             tv_total_expenses = view.findViewById(R.id.tv_total_expenses);
@@ -85,7 +86,7 @@ public class ExpensesFragment extends Fragment {
             for(Budget_item item : budget_items){
 
                     expense += item.getAmount();
-                    tv_total_expenses.setText("€"+expense);
+                    tv_total_expenses.setText(String.format("€%s", expense));
 
             }
         });

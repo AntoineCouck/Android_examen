@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -24,7 +23,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
-
 import com.example.android_examen_couckantoine.Models.Budget_item;
 import com.example.android_examen_couckantoine.R;
 import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
@@ -115,6 +113,10 @@ public class DashboardFragment extends Fragment {
         tv_limit_number = view.findViewById(R.id.tv_limit_number);
         btn_limit = view.findViewById(R.id.btn_set_limit);
 
+
+        tv_incomes.setText("€0");
+        tv_expenses.setText("€0");
+        tv_balance.setText("€0");
         tv_limit_number.setText("€0");
 
 
@@ -126,9 +128,9 @@ public class DashboardFragment extends Fragment {
             for(Budget_item item : budget_items){
 
                 totalIncomes += item.getAmount();
-                tv_incomes.setText("€" + totalIncomes);
+                tv_incomes.setText(String.format("€%s", totalIncomes));
                 totalBalance = totalIncomes - totalExpenses;
-                tv_balance.setText("€"+totalBalance);
+                tv_balance.setText(String.format("€%s", totalBalance));
 
                 if(totalIncomes == 0){
 
@@ -140,7 +142,7 @@ public class DashboardFragment extends Fragment {
                 }
 
 
-                Math.round(progression);
+
                 progressBar.setProgress((int)progression);
                 CalculatedProgression((int)progression);
             }
@@ -154,9 +156,9 @@ public class DashboardFragment extends Fragment {
                 for(Budget_item expense : budget_items){
 
                     totalExpenses += expense.getAmount();
-                    tv_expenses.setText("€"+totalExpenses);
+                    tv_expenses.setText(String.format("€%s", totalExpenses));
                     totalBalance = totalIncomes - totalExpenses;
-                    tv_balance.setText("€"+totalBalance);
+                    tv_balance.setText(String.format("€%s", totalBalance));
 
                     if(totalIncomes == 0){
 
@@ -168,7 +170,7 @@ public class DashboardFragment extends Fragment {
                     }
 
 
-                    Math.round(progression);
+
                     progressBar.setProgress((int)progression);
                     CalculatedProgression((int)progression);
 
@@ -183,7 +185,7 @@ public class DashboardFragment extends Fragment {
 
             if(CreateLimitDialogFragment.Limit != null){
 
-                tv_limit_number.setText("€"+ CreateLimitDialogFragment.Limit);
+                tv_limit_number.setText(String.format("€%s", CreateLimitDialogFragment.Limit));
             }
 
         });
@@ -209,7 +211,7 @@ public class DashboardFragment extends Fragment {
         }
         if(CreateLimitDialogFragment.Limit != null){
 
-            tv_limit_number.setText("€"+ CreateLimitDialogFragment.Limit);
+            tv_limit_number.setText(String.format("€%s", CreateLimitDialogFragment.Limit));
         }
 
     }

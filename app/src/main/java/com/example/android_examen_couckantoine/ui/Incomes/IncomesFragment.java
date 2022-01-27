@@ -27,6 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 
+
 public class IncomesFragment extends Fragment {
 
 
@@ -75,7 +76,7 @@ public class IncomesFragment extends Fragment {
             Income_RecyclerAdapter adapter = new Income_RecyclerAdapter(new ArrayList<>());
 
 
-            BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(getActivity().getApplication() , 1)).get(BudgetViewModel.class);
+            BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(requireActivity().getApplication() , 1)).get(BudgetViewModel.class);
             viewModel.getAllIncomes().observe(getViewLifecycleOwner(), budget_items -> {
 
                 adapter.Reload(budget_items);
@@ -84,7 +85,7 @@ public class IncomesFragment extends Fragment {
                 for(Budget_item item : budget_items){
 
                     income += item.getAmount();
-                    tv_total_incomes.setText("€"+income);
+                    tv_total_incomes.setText(String.format("€%s", income));
 
                 }
 

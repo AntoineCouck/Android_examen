@@ -8,7 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
+
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
+
 
 
 import com.example.android_examen_couckantoine.Models.BudgetType;
@@ -35,20 +35,13 @@ import com.example.android_examen_couckantoine.ui.other.Dialogs.WarningLimit;
 import org.threeten.bp.LocalDate;
 
 
+
 public class CreateFragment extends Fragment {
-
-    private FragmentActivity mContext;
-    private TextView tv_total_expenses;
-    double totalincomes = 0;
-    double totalexpenses = 0;
-
-
 
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mContext = (FragmentActivity) context;
 
     }
 
@@ -77,7 +70,7 @@ public class CreateFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(getActivity().getApplication() , 1)).get(BudgetViewModel.class);
+        BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(requireActivity().getApplication() , 1)).get(BudgetViewModel.class);
 
         EditText titleET = view.findViewById(R.id.et_title);
         EditText descriptionET = view.findViewById(R.id.et_description);

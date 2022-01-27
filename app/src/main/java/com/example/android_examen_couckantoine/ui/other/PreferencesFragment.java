@@ -33,10 +33,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
         super.onCreate(savedInstanceState);
 
 
-        listener = (prefs, key) -> {
-
-            Utils.showSnackbar(mContext , getView());
-        };
+        listener = (prefs, key) -> Utils.ShowSandbar(mContext , getView());
     }
 
     @Override

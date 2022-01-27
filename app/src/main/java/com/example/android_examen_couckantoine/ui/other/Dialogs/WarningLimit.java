@@ -12,8 +12,6 @@ import androidx.navigation.Navigation;
 import com.example.android_examen_couckantoine.R;
 
 
-import java.util.Objects;
-
 public class WarningLimit extends DialogFragment {
 
     private FragmentActivity mContext;

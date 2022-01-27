@@ -8,7 +8,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-
 import com.example.android_examen_couckantoine.databinding.ActivityMainBinding;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 

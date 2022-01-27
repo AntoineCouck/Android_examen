@@ -7,10 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,14 +23,13 @@ import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
 import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
 
 
-public class detailsFragment extends Fragment {
 
-    private FragmentActivity mContext;
+
+public class detailsFragment extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mContext = (FragmentActivity) context;
     }
 
 
@@ -60,7 +57,7 @@ public class detailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(getActivity().getApplication() , 1)).get(BudgetViewModel.class);
+        BudgetViewModel viewModel = new ViewModelProvider(this , new MyViewModelFactory(requireActivity().getApplication() , 1)).get(BudgetViewModel.class);
 
         Budget_item passedItem = (getArguments() != null) ? (Budget_item) getArguments().getSerializable("Budget") : null;
 
@@ -76,7 +73,7 @@ public class detailsFragment extends Fragment {
 
             tvTitle.setText(passedItem.getTitle());
             tvDescription.setText(passedItem.getDescription());
-            tvAmount.setText("€"+passedItem.getAmount());
+            tvAmount.setText(String.format("€%s", passedItem.getAmount()));
             tvDate.setText(passedItem.getCreatedOn().toString());
             tv_type.setText(passedItem.getType().toString());
 
