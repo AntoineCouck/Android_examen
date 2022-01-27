@@ -41,4 +41,6 @@
     <string name="txt_title_Warningdialog">Limiet is bereikt</string>
     <string name="txt_wariningdialog_toDashboard">Stel een nieuw limiet in</string>
     <string name="txt_warningdialog_create">Toch aanmaken</string>
+    <string name="txt_toast_languages">De veranderen zullen toegpast worden na het terugkeren naar de dashboard</string>
+    <string name="txt_snackbarr_languages_btn">OK</string>
 </resources>

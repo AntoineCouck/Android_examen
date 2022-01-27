@@ -59,6 +59,9 @@
         <argument
             android:name="create_item"
             app:argType="boolean" />
+        <action
+            android:id="@+id/action_createFragment_to_navigation_d"
+            app:destination="@id/navigation_d" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -72,16 +75,13 @@
     <fragment
         android:id="@+id/preferencesFragment2"
         android:name="com.example.android_examen_couckantoine.ui.other.PreferencesFragment"
-        android:label="PreferencesFragment" />
+        android:label="PreferencesFragment" >
+        <action
+            android:id="@+id/action_preferencesFragment2_to_navigation_d"
+            app:destination="@id/navigation_d" />
+    </fragment>
     <dialog
         android:id="@+id/warningLimit"
         android:name="com.example.android_examen_couckantoine.ui.other.Dialogs.WarningLimit"
-        android:label="WarningLimit" >
-        <action
-            android:id="@+id/action_warningLimit_to_createFragment"
-            app:destination="@id/createFragment" />
-        <action
-            android:id="@+id/action_warningLimit_to_navigation_d"
-            app:destination="@id/navigation_d" />
-    </dialog>
+        android:label="WarningLimit" />
 </navigation>

@@ -2,21 +2,16 @@ package com.example.android_examen_couckantoine.ui.Incomes;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,7 +25,6 @@ import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class IncomesFragment extends Fragment {
@@ -50,11 +44,6 @@ public class IncomesFragment extends Fragment {
 
         public IncomesFragment() {
             // Required empty public constructor
-        }
-
-        public static IncomesFragment newInstance() {
-
-            return new IncomesFragment();
         }
 
 

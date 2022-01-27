@@ -42,9 +42,9 @@ public class CreateLimitDialogFragment extends DialogFragment {
 
 
         View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.limitdialog, (ViewGroup) getView(), false);
-        // Set up the input
+
         final EditText input = (EditText) viewInflated.findViewById(R.id.et_number_limit);
-// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+
         mBuilder.setView(viewInflated);
 
 

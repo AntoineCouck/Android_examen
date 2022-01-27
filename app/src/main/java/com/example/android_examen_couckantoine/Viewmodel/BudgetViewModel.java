@@ -14,18 +14,6 @@ import java.util.List;
 
 public class BudgetViewModel extends AndroidViewModel {
 
-    //    private MutableLiveData<String> mText;
-//
-//    public HomeViewModel() {
-//        mText = new MutableLiveData<>();
-//        mText.setValue("This is home fragment");
-//    }
-//
-//    public LiveData<String> getText() {
-//        return mText;
-//    }
-
-
     private final LiveData<List<Budget_item>> SharedItems;
     private final LiveData<List<Budget_item>> AllIncomes;
     private final LiveData<List<Budget_item>> AllExpenses;

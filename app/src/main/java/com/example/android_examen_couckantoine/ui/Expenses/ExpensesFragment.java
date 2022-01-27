@@ -48,10 +48,6 @@ public class ExpensesFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static ExpensesFragment newInstance() {
-
-        return new ExpensesFragment();
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,7 +63,7 @@ public class ExpensesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.expenses_layout, container, false);
     }
 

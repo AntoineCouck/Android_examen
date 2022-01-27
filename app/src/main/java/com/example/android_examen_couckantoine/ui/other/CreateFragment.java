@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.android_examen_couckantoine.Models.BudgetType;
 import com.example.android_examen_couckantoine.Models.Budget_item;
@@ -41,7 +41,7 @@ public class CreateFragment extends Fragment {
     private TextView tv_total_expenses;
     double totalincomes = 0;
     double totalexpenses = 0;
-    boolean create;
+
 
 
 
@@ -109,11 +109,13 @@ public class CreateFragment extends Fragment {
 
                 new WarningLimit().show(getChildFragmentManager() , WarningLimit.TAG);
 
-                assert getArguments() != null;
-                create = getArguments().getBoolean("create_item");
 
-                if (create){
+
+
+                if (WarningLimit.Create){
                     viewModel.Insert(newBudget);
+                    Navigation.findNavController(view).navigateUp();
+
                 }
 
             }

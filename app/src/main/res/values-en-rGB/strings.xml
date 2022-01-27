@@ -50,5 +50,7 @@
     <string name="txt_title_Warningdialog">Warning limit reached</string>
     <string name="txt_wariningdialog_toDashboard">Reset the limit in dashboard</string>
     <string name="txt_warningdialog_create">Create anywhere</string>
+    <string name="txt_toast_languages">changes will be applied after leaving the dashboard</string>
+    <string name="txt_snackbarr_languages_btn">OK</string>
 
 </resources>

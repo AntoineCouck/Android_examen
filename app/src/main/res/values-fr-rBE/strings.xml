@@ -41,4 +41,6 @@
     <string name="txt_title_Warningdialog">Attention limite atteinte</string>
     <string name="txt_wariningdialog_toDashboard">Définir une nouvelle limite</string>
     <string name="txt_warningdialog_create">Créer quannd meme</string>
+    <string name="txt_toast_languages">les changement seront appliqué après avoir quitté le dashboard</string>
+    <string name="txt_snackbarr_languages_btn">OK</string>
 </resources>

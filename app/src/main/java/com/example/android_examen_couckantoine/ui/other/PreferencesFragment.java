@@ -2,31 +2,21 @@ package com.example.android_examen_couckantoine.ui.other;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigation;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
-
 import com.example.android_examen_couckantoine.R;
 import com.example.android_examen_couckantoine.Utils.Utils;
 
-import java.util.Locale;
 
 public class PreferencesFragment extends PreferenceFragmentCompat {
 
     private FragmentActivity mContext;
+    SharedPreferences.OnSharedPreferenceChangeListener listener;
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -38,29 +28,45 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
         setPreferencesFromResource(R.xml.preferences, rootKey);
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        listener = (prefs, key) -> {
+
+            Utils.showSnackbar(mContext , getView());
+        };
+    }
 
     @Override
     public void onResume() {
 
         super.onResume();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-        String Languishes = prefs.getString("list_preference_1"  , "NL");
+        String Languishes = prefs.getString("list_preference_1"  , "");
 
         if(Languishes.equals("NL")){
 
 
             Utils.updateResources(mContext , "NL");
+            prefs.registerOnSharedPreferenceChangeListener(listener);
+
         }
         if(Languishes.equals("ENG")){
 
 
             Utils.updateResources(mContext , "en" );
+            prefs.registerOnSharedPreferenceChangeListener(listener);
         }
         if(Languishes.equals("FR")){
 
 
             Utils.updateResources(mContext , "fr" );
+            prefs.registerOnSharedPreferenceChangeListener(listener);
         }
+
+
     }
 
 
@@ -74,22 +80,24 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
 
             Utils.updateResources(mContext , "NL");
+            prefs.registerOnSharedPreferenceChangeListener(listener);
 
-            //TODO ajouter un toast pour prevenir du changement de la langue
         }
         if(Languishes.equals("ENG")){
 
             Utils.updateResources(mContext , "en" );
+            prefs.registerOnSharedPreferenceChangeListener(listener);
+
 
         }
         if(Languishes.equals("FR")){
 
 
             Utils.updateResources(mContext , "fr" );
+            prefs.registerOnSharedPreferenceChangeListener(listener);
         }
 
     }
-
 
 
 }
