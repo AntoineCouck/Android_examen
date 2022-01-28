@@ -192,9 +192,6 @@ public class DashboardFragment extends Fragment {
 
         });
 
-
-
-
     }
 
 
@@ -220,7 +217,7 @@ public class DashboardFragment extends Fragment {
 
         if(progression >= 75){
 
-//            progressBar.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 progressBar.setIndeterminateTintList(ColorStateList.valueOf(Color.GREEN));
             }

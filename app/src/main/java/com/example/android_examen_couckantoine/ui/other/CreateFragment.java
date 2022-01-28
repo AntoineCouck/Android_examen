@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-
+import android.widget.Toast;
 
 
 import com.example.android_examen_couckantoine.Models.BudgetType;
@@ -47,7 +47,7 @@ public class CreateFragment extends Fragment {
 
 
     public CreateFragment() {
-        // Required empty public constructor
+
     }
 
 
@@ -62,7 +62,7 @@ public class CreateFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_create, container, false);
     }
 
@@ -87,8 +87,14 @@ public class CreateFragment extends Fragment {
             newBudget.setTitle(titleET.getText().toString());
             newBudget.setDescription(descriptionET.getText().toString());
             newBudget.setCreatedOn(LocalDate.now());
-            newBudget.setAmount(parseDouble(amountET.getText().toString()));
+            if(amountET.getText().toString().trim().length() > 0){
+                newBudget.setAmount(parseDouble(amountET.getText().toString()));
+            }
+            else {
 
+               newBudget.setAmount(0);
+
+            }
 
 
             if(ChooseIncome.isChecked()){
@@ -97,6 +103,10 @@ public class CreateFragment extends Fragment {
             if(ChooseExpense.isChecked()){
                 newBudget.setType(BudgetType.EXPENSE);
             }
+
+
+
+
 
                 if ((  CreateLimitDialogFragment.Limit != null
                         && (DashboardFragment.totalBalance - Double.parseDouble(amountET.getText().toString())) < Double.parseDouble(CreateLimitDialogFragment.Limit)
@@ -117,6 +127,7 @@ public class CreateFragment extends Fragment {
                     Navigation.findNavController(view).navigateUp();
 
                 }
+
 
 
         });
