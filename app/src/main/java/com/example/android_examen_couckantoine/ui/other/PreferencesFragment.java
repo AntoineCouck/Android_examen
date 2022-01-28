@@ -3,6 +3,10 @@ package com.example.android_examen_couckantoine.ui.other;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
@@ -30,10 +34,16 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        listener = (prefs, key) -> Utils.ShowSandbar(mContext , getView());
         super.onCreate(savedInstanceState);
 
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         listener = (prefs, key) -> Utils.ShowSandbar(mContext , getView());
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -63,7 +73,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             prefs.registerOnSharedPreferenceChangeListener(listener);
         }
 
-
+        listener = (pref, key) -> Utils.ShowSandbar(mContext , getView());
     }
 
 
@@ -93,7 +103,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             Utils.updateResources(mContext , "fr" );
             prefs.registerOnSharedPreferenceChangeListener(listener);
         }
-
+        listener = (pref, key) -> Utils.ShowSandbar(mContext , getView());
     }
 
 

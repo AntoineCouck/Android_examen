@@ -40,5 +40,14 @@ public class Utils {
         snackbar.show();
     }
 
+    public static void ShowSnackbar(final Activity activity , View view){
+
+        Snackbar snackbar = Snackbar.make(view.findViewById(R.id.dashboard_container) ,R.string.txt_snackbar_title , Snackbar.LENGTH_LONG);
+        snackbar.setActionTextColor(Color.GREEN);
+        snackbar.setAction(R.string.txt_snackbar_apply, v -> Navigation.findNavController(activity , R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_d_to_preferencesFragment22));
+        snackbar.show();
+
+    }
+
 
 }

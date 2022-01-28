@@ -98,28 +98,23 @@ public class CreateFragment extends Fragment {
                 newBudget.setType(BudgetType.EXPENSE);
             }
 
-            if( (DashboardFragment.totalBalance - Double.parseDouble(amountET.getText().toString())) < Double.parseDouble(CreateLimitDialogFragment.Limit) && ChooseExpense.isChecked()){
+                if ((DashboardFragment.totalBalance - Double.parseDouble(amountET.getText().toString())) < Double.parseDouble(CreateLimitDialogFragment.Limit)
+                        && ChooseExpense.isChecked()
+                        && CreateLimitDialogFragment.Limit != null ) {
 
-                new WarningLimit().show(getChildFragmentManager() , WarningLimit.TAG);
+                    new WarningLimit().show(getChildFragmentManager(), WarningLimit.TAG);
 
+                    if (WarningLimit.Create) {
+                        viewModel.Insert(newBudget);
+                        Navigation.findNavController(view).navigateUp();
+                    }
 
-
-
-                if (WarningLimit.Create){
+                }
+                else {
                     viewModel.Insert(newBudget);
                     Navigation.findNavController(view).navigateUp();
 
                 }
-
-            }
-
-            else {
-                            viewModel.Insert(newBudget);
-                            Navigation.findNavController(view).navigateUp();
-
-            }
-
-
 
 
         });

@@ -25,12 +25,14 @@ import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 import com.example.android_examen_couckantoine.Models.Budget_item;
 import com.example.android_examen_couckantoine.R;
+import com.example.android_examen_couckantoine.Utils.Utils;
 import com.example.android_examen_couckantoine.Viewmodel.BudgetViewModel;
 import com.example.android_examen_couckantoine.Viewmodel.MyViewModelFactory;
 import com.example.android_examen_couckantoine.ui.other.Dialogs.CreateLimitDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
+import java.util.Objects;
 
 
 public class DashboardFragment extends Fragment {
@@ -203,10 +205,7 @@ public class DashboardFragment extends Fragment {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
         if(!prefs.getBoolean("pref_tos", false)){
 
-            Snackbar snackbar = Snackbar.make(mContext.findViewById(R.id.dashboard_container) ,R.string.txt_snackbar_title , Snackbar.LENGTH_LONG);
-            snackbar.setActionTextColor(Color.GREEN);
-            snackbar.setAction(R.string.txt_snackbar_apply, v -> Navigation.findNavController(mContext , R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_d_to_preferencesFragment22));
-            snackbar.show();
+            Utils.ShowSnackbar(mContext , this.requireView());
 
         }
         if(CreateLimitDialogFragment.Limit != null){
