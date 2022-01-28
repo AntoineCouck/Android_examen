@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.Navigation;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import com.example.android_examen_couckantoine.R;
@@ -34,7 +35,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        listener = (prefs, key) -> Utils.ShowSandbar(mContext , getView());
+
         super.onCreate(savedInstanceState);
 
     }
@@ -42,8 +43,14 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        listener = (prefs, key) -> Utils.ShowSandbar(mContext , getView());
+
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        listener = (prefs , key) -> Navigation.findNavController(mContext , R.id.nav_host_fragment_activity_main).navigateUp();
     }
 
     @Override
@@ -73,7 +80,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             prefs.registerOnSharedPreferenceChangeListener(listener);
         }
 
-        listener = (pref, key) -> Utils.ShowSandbar(mContext , getView());
+        listener = (pref , key) -> Navigation.findNavController(mContext , R.id.nav_host_fragment_activity_main).navigateUp();
     }
 
 
@@ -103,7 +110,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             Utils.updateResources(mContext , "fr" );
             prefs.registerOnSharedPreferenceChangeListener(listener);
         }
-        listener = (pref, key) -> Utils.ShowSandbar(mContext , getView());
+        listener = (pref , key) -> Navigation.findNavController(mContext , R.id.nav_host_fragment_activity_main).navigateUp();
     }
 
 
